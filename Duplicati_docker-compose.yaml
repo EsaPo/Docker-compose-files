@@ -1,0 +1,17 @@
+version: "2.1"
+services:
+  duplicati:
+    image: ghcr.io/linuxserver/duplicati
+    container_name: duplicati
+    environment:
+      - PUID=0
+      - PGID=0
+      - TZ=Europe/Helsinki
+    volumes:
+      - /opt/docker-data/duplicati/config:/config
+      - /opt/docker-data/duplicati/backups/:/backups
+      #Remove :ro (Read Only) when restoring! 
+      - /opt/docker-data/:/source:ro
+    restart: always
+    ports:
+      - "8200:8200"
