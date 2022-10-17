@@ -1,0 +1,21 @@
+# Docker Compose file for a Baikal server
+
+version: "2"
+services:
+  baikal:
+    image: ckulka/baikal:nginx
+#    network_mode: "host"
+    restart: always
+    ports:
+      - "5232:80"
+#      - "443:443"
+    volumes:
+      - /opt/docker-data/baikal/config:/var/www/baikal/config
+      - /opt/docker-data/baikal/data:/var/www/baikal/Specific
+
+#    environment:
+#      TRUSTED_PROXIES=192.168.0.XXX/24
+volumes:
+  config:
+  data:
+
