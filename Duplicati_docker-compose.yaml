@@ -8,11 +8,11 @@ services:
       - PGID=0
       - TZ=Europe/Helsinki
     volumes:
-      - /opt/docker-data/dublicati/config:/config
-      - /opt/docker-data/dublicati/backups/:/backups
+      - /opt/docker-data/duplicati/config:/config
+      - /opt/docker-data/duplicati/backups/:/backups
       #Remove :ro (Read Only) when restoring! 
       - /opt/docker-data/:/source:ro
     restart: always
     ports:
-      - "8300:8200"
+      - "8200:8200"
 
